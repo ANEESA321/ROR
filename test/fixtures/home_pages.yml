@@ -1,0 +1,11 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  tasks: MyString
+  task_details: MyString
+  date_of_task: 2022-08-11
+
+two:
+  tasks: MyString
+  task_details: MyString
+  date_of_task: 2022-08-11

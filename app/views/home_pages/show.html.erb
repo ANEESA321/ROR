@@ -1,0 +1,12 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @home_page %>
+
+<div>
+<br>
+  <%= button_to "Destroy this form", @home_page, method: :delete %>
+  <br>
+  <%= link_to "Edit this form", edit_home_page_path(@home_page) %> |
+  <%= link_to "Back to home page\n", home_pages_path %><br><br>
+
+</div>
