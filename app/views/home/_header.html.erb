@@ -1,0 +1,29 @@
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<div class="container-fluid">
+  <a class="navbar-brand" href="#"><%= t('static_content.heading')%></a>
+  <ul class="navbar-nav">
+    <li>
+    <%= link_to "spanish", root_path(locale: :es),class:"btn btn-outline-dark" %><br>
+    </li>
+    <li class="nav-item">
+    <%= link_to "English", root_path(locale: :en),class:"btn btn-outline-dark" %>
+    </li>
+      <% if user_signed_in? %>
+          <li class="nav-item">
+              <%= button_to t("link.sign_out"),destroy_user_session_path,method: :delete,class:"btn btn-outline-dark" %>
+          </li>	
+          <li class="nav-item">
+              <%= link_to t('link.user_list'),users_path,class:"btn btn-outline-dark" %>
+          </li>
+          <li class="nav-item">
+              <%= link_to t('link.task_list'),tasks_path,class:"btn btn-outline-dark" %>
+          </li>
+      <% else %>
+          <li class="nav-item">
+          <%= link_to t('link.sign_up'), new_user_registration_path,class:"btn btn-outline-dark" %>
+          </li>
+      <% end %>
+</div>
+</nav>
+ 

@@ -1,0 +1,19 @@
+es:
+  static_content: 
+    heading: "administracion de tareas"
+
+  link:
+    #signed_in: "Ha iniciado sesión correctamente."
+    #signed_out: "Cerrar sesión correctamente."
+    user_list: "lista de usuarios"
+    task_list: "lista de tareas"
+    sign_up: "inscribirse"
+    sign_out: "desconectar"
+    new_task: "nueva tarea"
+    csv: "exportar csv"
+    pdf: "exportar pdf"
+    show: "mostrar"
+    delete: "eliminar"
+    edit: "editar"
+  action:
+    submit: "enviar"

@@ -1,0 +1,40 @@
+<%= form_for @task, remote: true ,html: {class: "update"} do |form| %> 
+  <% if task.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(task.errors.count, "error") %> prohibited this task from being saved:</h2>
+
+      <ul>
+        <% task.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :name, style: "display: block" %>
+    <%= form.text_field :name %>
+  </div>
+
+    <%= form.label :task_details, style: "display: block" %>
+    <%= form.text_area :task_details %>
+  </div>
+
+  <div>
+    <%= form.label :due_date, style: "display: block" %>
+    <%= form.date_field :due_date %>
+  </div>
+  <div>
+    <%= form.label :status, style: "display: block" %>
+    <%= form.check_box :status %>
+  </div><br>
+  <%= hash=Hash.new(0) %>
+    <% User.all.each {|x| hash[x.id] = x.first_name}%>
+      <div>
+      <%= form.label :User, style: "display: block" %>
+      <%= form.select :userid, hash.sort.map {|k,v| [v,k]} %>
+      </div>
+  <div><br><br>
+    <%= form.submit "update",remote: true %>
+  </div>
+<% end %>

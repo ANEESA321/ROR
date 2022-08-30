@@ -1,0 +1,27 @@
+<p style="color: green"><%= notice %></p>
+<table class="table table bordered">
+  <thead class="table-dark">
+    <tr>
+      <th>Task name</th>
+      <th>Task details name</th>
+      <th>Due Date</th>
+      <th>Status</th>
+    </tr>
+  </thead>
+  <% Task.where(userid: @user.id).each do |task|%>
+    <tr>
+    <td><%= task.name %></td>
+    <td><%= task.task_details %></td>
+    <td><%= task.due_date %></td>
+    <%if task.status == true %>
+      <td><%= "completed" %></td>
+    <%else%>
+      <td><%= "pending" %></td>
+    <%end%> 
+  </tr>
+  <%end%>
+</table><br>
+<div>
+  <%= link_to "Edit this user", edit_user_path(@user),class:"btn btn-outline-dark" %>    
+  <%= link_to "Back to users", users_path,class:"btn btn-outline-dark" %>
+</div>

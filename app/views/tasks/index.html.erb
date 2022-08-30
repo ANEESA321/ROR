@@ -1,0 +1,36 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Tasks</h1><br><br>
+<table class="table table bordered">
+<thead class="table-dark">
+  <tr >
+    <th>Task Name</th>
+    <th>Task Details</th>
+    <th>Due Date</th>
+    <th>Status</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+  </thead>
+
+  <% @tasks.each do |task| %>
+  <tr>
+    <td><%= task.name %></td>
+    <td><%= task.task_details %></td>
+    <td><%= task.due_date %></td>
+    <%if task.status == true %>
+      <td><%= "completed" %></td>
+    <%else%>
+      <td><%= "pending" %></td>
+    <%end%>
+    <td><%= link_to t("link.show"), task,class:"btn btn-outline-dark" %></td>
+    <td><%=  link_to t("link.edit"), edit_task_path(task),class:"btn btn-outline-dark" %></td>
+    <td><%= button_to t("link.delete"), task, method: :delete,class:"btn btn-outline-dark",data: {confirm: 'are u sure'}, :remote => true,:class => 'delete' %></td>
+    </tr>
+  <% end %>
+</table><br>
+
+<%= link_to t("link.new_task"), new_task_path,class:"btn btn-dark" %>
+<%= link_to t("link.csv"), tasks_path(format: :csv),class:"btn btn-dark" %>
+<%= link_to t("link.pdf"), tasks_path(format: :pdf), class:"btn btn-dark" %>
